@@ -90,3 +90,30 @@ function error(err) {
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+
+var data;
+//add event listener for page load to trigger random imgs from api
+window.addEventListener("load", (evt) => {
+  evt.preventDefault();
+  //add function for assigning source APIs to carousel imgs
+  let dogApi = "https://dog.ceo/api/breeds/image/random";
+
+  const dogOne = document.getElementById("img1");
+  const dogTwo = document.getElementById("img2");
+  const dogThree = document.getElementById("img3");
+
+  fetch(dogApi)
+    .then((response) => response.json())
+    // .then((data) => console.log(data));
+    .then((data) => dogOne.setAttribute("src", data.message));
+
+  fetch(dogApi)
+    .then((response) => response.json())
+    // .then((data) => console.log(data));
+    .then((data) => dogTwo.setAttribute("src", data.message));
+
+  fetch(dogApi)
+    .then((response) => response.json())
+    // .then((data) => console.log(data));
+    .then((data) => dogThree.setAttribute("src", data.message));
+});
