@@ -13,6 +13,7 @@ function getApiToken () {
     })
 }
 
+let apiData
 function formSubmit(event) {
     event.preventDefault()
     let token
@@ -31,10 +32,41 @@ function formSubmit(event) {
         Authorization: `Bearer ${token}`
     }})
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        apiData = data
+        populateCards()
+    })
     searchBox.value = ''
     })
 }
+
+function populateCards () {
+    /* 
+    TODO
+    REMOVE CARDS
+    */
+    for (let i = 0; i < 9; i++){
+       let newCard = document.querySelector('.card').cloneNode(true)
+       document.getElementById('card-container').appendChild(newCard)
+    }
+    document.getElementById('card-container').style.display = 'inline-block'
+    fillInCards()
+}
+
+function fillInCards () {
+    /* 
+    TODO
+    make image link clickable
+    */
+    let cardArray = document.querySelectorAll('.card')
+    let i = 0
+    for (let card of cardArray) {
+        card.childNodes[1].innerText = apiData.animals[i].name
+        card.childNodes[3].setAttribute('src', apiData.animals[i].photos[0])
+        i++
+    }
+}
+
 //create form
 function createForm(species, age, sex, location) {
   let form = document.createElement("div");
