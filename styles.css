@@ -22,6 +22,15 @@ form {
   margin-top: 2%;
 }
 
+.card {
+  width: 18rem;
+  text-align: center;
+}
+
+.card img {
+  margin-top
+}
+
 #card-container {
   display: none;
 }

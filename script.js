@@ -37,6 +37,7 @@ function formSubmit(event) {
         populateCards()
     })
     searchBox.value = ''
+    document.getElementById("carouselExampleControls").style.display = "none";
     })
 }
 
@@ -49,7 +50,8 @@ function populateCards () {
        let newCard = document.querySelector('.card').cloneNode(true)
        document.getElementById('card-container').appendChild(newCard)
     }
-    document.getElementById('card-container').style.display = 'inline-block'
+    // document.getElementById('card-container').style.display = 'flex'
+    document.getElementById('card-container').classList.add("d-flex", "flex-wrap", "justify-content-evenly", "container")
     fillInCards()
 }
 
