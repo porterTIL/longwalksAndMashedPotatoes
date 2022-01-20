@@ -21,3 +21,7 @@ form {
   margin-bottom: 2%;
   margin-top: 2%;
 }
+
+#card-container {
+  display: none;
+}
