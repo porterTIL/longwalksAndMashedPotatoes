@@ -36,7 +36,7 @@ function formSubmit(event) {
         apiData = data
         populateCards()
     })
-    searchBox.value = ''
+    // searchBox.value = ''
     document.getElementById("carouselExampleControls").style.display = "none";
     })
 }
@@ -64,7 +64,9 @@ function fillInCards () {
     let i = 0
     for (let card of cardArray) {
         card.childNodes[1].innerText = apiData.animals[i].name
-        card.childNodes[3].setAttribute('src', apiData.animals[i].photos[0])
+        if(apiData.animals[i].photos[0]){
+            card.childNodes[3].setAttribute('src', apiData.animals[i].photos[0].medium)
+        }
         i++
     }
 }
