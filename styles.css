@@ -7,3 +7,17 @@
   margin: 0 auto;
   text-align: center;
 }
+
+body {
+  background-image: url("https://media.istockphoto.com/vectors/animal-paw-seamless-pattern-vector-id1005886450?k=20&m=1005886450&s=612x612&w=0&h=3gQ0draRb84_jXyGUNW910wLQUGkzWn5dkwhBqU7tcA=");
+}
+
+form {
+  background-color: white;
+  border-style: solid;
+  width: max-content;
+  text-align: center;
+  margin-left: 40%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
