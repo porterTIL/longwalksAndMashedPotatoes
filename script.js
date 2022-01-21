@@ -47,9 +47,12 @@ function populateCards () {
     while (document.querySelectorAll('.card').length > 1) {
         document.querySelector('.card').remove()
     }
-    for (let i = 0; i < 9; i++){
+    
+    let i = 1
+    while (i < apiData.animals.length) {
        let newCard = document.querySelector('.card').cloneNode(true)
        cardContainer.appendChild(newCard)
+       i++
     }
     // document.getElementById('card-container').style.display = 'flex'
     document.getElementById('card-container').classList.add("d-flex", "flex-wrap", "justify-content-evenly", "container")
