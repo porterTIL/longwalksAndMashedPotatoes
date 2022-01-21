@@ -57,19 +57,23 @@ function populateCards () {
 }
 
 function fillInCards () {
-    /* 
-    TODO
-    make image link clickable
-    */
     let cardArray = document.querySelectorAll('.card')
     let i = 0
     for (let card of cardArray) {
+        card.addEventListener('click', openAdoptionLink)
+        card.setAttribute('url', apiData.animals[i].url)
+        card.attrib
         card.childNodes[1].innerText = apiData.animals[i].name
         if(apiData.animals[i].photos[0]){
             card.childNodes[3].setAttribute('src', apiData.animals[i].photos[0].medium)
         }
         i++
     }
+}
+
+function openAdoptionLink (evt) {
+    let url = evt.currentTarget.getAttribute('url')
+    window.open(url)
 }
 
 //create form
