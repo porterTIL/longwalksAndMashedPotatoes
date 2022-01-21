@@ -34,3 +34,9 @@ form {
 #card-container {
   display: none;
 }
+
+.card {
+  background-color: #8fe2f1;
+  border: 5px solid black; 
+  
+}
