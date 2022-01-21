@@ -1,6 +1,6 @@
 document.getElementById('form').addEventListener('submit', formSubmit)
 let petApi = new URL('https://api.petfinder.com/')
-
+let crd
 
 function getApiToken () {
     petApi.pathname = '/v2/oauth2/token'
@@ -26,7 +26,7 @@ function formSubmit(event) {
 
     petApi.pathname = 'v2/animals'
     petApi.search = `breed=${searchName}`
-
+    if (crd) petApi.search += `&location=${crd.latitude}, ${crd.longitude}`
 
     fetch(petApi, {headers: {
         Authorization: `Bearer ${token}`
@@ -118,7 +118,7 @@ var options = {
 };
 
 function success(pos) {
-  var crd = pos.coords;
+  crd = pos.coords;
 
   console.log("Your current position is:");
   console.log(`Latitude : ${crd.latitude}`);
