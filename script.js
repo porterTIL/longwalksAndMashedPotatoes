@@ -42,13 +42,14 @@ function formSubmit(event) {
 }
 
 function populateCards () {
-    /* 
-    TODO
-    REMOVE CARDS
-    */
+    let cardContainer = document.getElementById('card-container')
+
+    while (document.querySelectorAll('.card').length > 1) {
+        document.querySelector('.card').remove()
+    }
     for (let i = 0; i < 9; i++){
        let newCard = document.querySelector('.card').cloneNode(true)
-       document.getElementById('card-container').appendChild(newCard)
+       cardContainer.appendChild(newCard)
     }
     // document.getElementById('card-container').style.display = 'flex'
     document.getElementById('card-container').classList.add("d-flex", "flex-wrap", "justify-content-evenly", "container")
